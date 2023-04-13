@@ -14,7 +14,7 @@
   align-self: flex-end;
   margin-top: 16px;
 
-  transition: background 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 .blue {

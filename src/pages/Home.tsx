@@ -12,11 +12,13 @@ import { useAppSelector } from '../Hooks'
 import { addNewPost } from '../redux/post/PostSlice'
 import { setTitleValue } from '../redux/title/TitleSlice'
 import { setContentValue } from '../redux/content/ContentSlice'
+import { setUserValue, toggleIsSignedValue } from '../redux/user/UserSlice'
 
 import { FormEvent, useEffect } from 'react'
 import { fetchInitialData } from '../actions/dataExample'
-import { SignOut } from 'phosphor-react'
-import { toggleIsSignedValue } from '../redux/user/UserSlice'
+
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 
 export function Home() {
   const postsList = useAppSelector((state) => state.post)
@@ -49,12 +51,15 @@ export function Home() {
     <div className="container">
       <header>
         <Heading title="CodeLeap Network" color="white" />
-        <button
-          title='Sign Out'
-          onClick={() => dispatch(toggleIsSignedValue())}
-        >
-          <SignOut size={32} color="#FFF" weight="bold" /> 
-        </button>
+        <Button
+          type='button'
+          theme='red'
+          title='SignOut'
+          onClick={() => {
+            dispatch(toggleIsSignedValue())
+            dispatch(setUserValue(""))
+          }}
+        />
       </header>
 
       <div className="content" >
@@ -83,18 +88,22 @@ export function Home() {
           />
         </form>
 
-        {
-          postsList && postsList.map(post => (
-            <Post
-              id={post.id}
-              username={post.username}
-              created_datetime={post.created_datetime}
-              title={post.title}
-              content={post.content}
-              key={post.id}
-            />
-          ))
-        }
+        <TransitionGroup>
+          {
+            postsList && postsList.map(post => (
+              <CSSTransition key={post.id} classNames="post" timeout={300} >
+                <Post
+                  id={post.id}
+                  username={post.username}
+                  created_datetime={post.created_datetime}
+                  title={post.title}
+                  content={post.content}
+                  key={post.id}
+                />
+              </CSSTransition>
+            ))
+          }
+        </TransitionGroup>
 
       </div>
     </div>

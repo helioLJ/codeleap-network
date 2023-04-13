@@ -11,12 +11,14 @@
 }
 
 .post-container header h2 {
-  width: 80%;
+  width: 60%;
 }
 
 .post-container header .buttons {
   display: flex;
-  gap: 33px;
+  gap: clamp(14px, 3vw, 33px);
+  width: 30%;
+  justify-content: end;
 }
 
 .post-container header .buttons button {
@@ -51,4 +53,22 @@
   font-size: 18px;
   line-height: 21px;
   word-wrap: break-word;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.modal-exit {
+  opacity: 1;
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }

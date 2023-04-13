@@ -12,6 +12,8 @@ import { setDeletingId } from '../redux/deleting/DeletingSlice'
 import { EditModal } from './EditModal'
 import { setEditingId, setNewContent, setNewTitle } from '../redux/editing/EditingSlice'
 
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 interface PostProps {
   title: string
   username: string
@@ -43,7 +45,13 @@ export function Post(props: PostProps) {
               <Trash size={22} color="#FFFFFF" weight="bold" />
             </button>
 
-            {deletingId !== "" && <DeleteModal />}
+            <TransitionGroup>
+              {deletingId !== "" && (
+                <CSSTransition classNames="modal" timeout={300}>
+                  <DeleteModal />
+                </CSSTransition>
+              )}
+            </TransitionGroup>
 
             <button onClick={() => {
               dispatch(setNewTitle(props.title))
@@ -54,7 +62,13 @@ export function Post(props: PostProps) {
               <NotePencil size={22} color="#FFFFFF" weight="bold" />
             </button>
 
-            {editingId !== "" && <EditModal />}
+            <TransitionGroup>
+              {editingId !== "" && (
+                <CSSTransition classNames="modal" timeout={300}>
+                  <EditModal />
+                </CSSTransition>
+              )}
+            </TransitionGroup>
 
           </div>
         )}
@@ -65,9 +79,9 @@ export function Post(props: PostProps) {
           <span>@{props.username}</span>
           <small>
             {pastTime >= 60 ?
-            `${diffHours} hours ago` :
-            `${pastTime} minutes ago` }
-            </small>
+              `${diffHours} hours ago` :
+              `${pastTime} minutes ago`}
+          </small>
         </div>
 
         <p>
