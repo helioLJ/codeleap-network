@@ -6,7 +6,7 @@
 
 Very simple application that will perform basic CRUD functions.
 
-- [Live Link](https://codeleap-network-three.vercel.app/)
+- [Live Link](https://codeleap-network-43s5.vercel.app/)
 ## Stack
 
 **Front-end:**
@@ -71,5 +71,5 @@ Start your local server
 
 ## Licença
 
-[MIT](https://github.com/helioLJ/weather-app-react/blob/main/LICENSE)
+[MIT](https://github.com/helioLJ/codeleap-network/blob/main/LICENSE)
 
