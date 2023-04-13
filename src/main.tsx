@@ -8,6 +8,7 @@ import { Routes } from './routes'
 import configureAppStore from './configureStore'
 import { PersistGate } from 'redux-persist/integration/react'
 const { persistingStore, persistor } = configureAppStore()
+export type RootState = ReturnType<typeof persistingStore.getState>
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

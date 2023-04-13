@@ -32,5 +32,6 @@ export default function configureAppStore() {
     reducer: persistedReducer,
   });
   const persistor = persistStore(persistingStore);
+  
   return { persistingStore, persistor };
 }
