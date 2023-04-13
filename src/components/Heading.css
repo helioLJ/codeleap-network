@@ -1,0 +1,14 @@
+.heading {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  word-wrap: break-word;
+}
+
+.heading-white {
+  color: #FFFFFF;
+}
+
+.heading-black {
+  color: #000000;
+}

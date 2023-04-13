@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #DDDDDD;
+  -webkit-font-smoothing: antialiased;
+  padding-inline: 10px;
+  overflow-y: hidden;
+}
+
+body,
+input,
+textarea,
+button {
+  font: 400 18px Roboto, sans-serif;
+}
+
+textarea {
+  resize: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  transition: filter 200ms;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}

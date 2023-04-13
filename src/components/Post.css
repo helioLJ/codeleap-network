@@ -1,0 +1,54 @@
+.post-container {
+  margin-top: 24px;
+}
+
+.post-container header {
+  background: #7695EC;
+  border-radius: 16px 16px 0 0;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-container header h2 {
+  width: 80%;
+}
+
+.post-container header .buttons {
+  display: flex;
+  gap: 33px;
+}
+
+.post-container header .buttons button {
+  background: none;
+  border: none;
+}
+
+.post-content {
+  border: 1px solid #999999;
+  border-radius: 0 0 16px 16px;
+  padding: 24px;
+}
+
+.post-content .info {
+  font-size: 18px;
+  line-height: 21px;
+  color: #777777;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.post-content .info span {
+  font-weight: 700;
+}
+
+.post-content .info small {
+  font-weight: 400;
+}
+
+.post-content p {
+  font-size: 18px;
+  line-height: 21px;
+  word-wrap: break-word;
+}
