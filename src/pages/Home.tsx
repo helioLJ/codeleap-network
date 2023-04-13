@@ -99,6 +99,7 @@ export function Home() {
                   title={post.title}
                   content={post.content}
                   key={post.id}
+                  likedBy={post.likedBy}
                 />
               </CSSTransition>
             ))

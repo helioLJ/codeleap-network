@@ -1,4 +1,4 @@
-import { Trash, NotePencil } from 'phosphor-react'
+import { Trash, NotePencil, ThumbsUp } from 'phosphor-react'
 
 import './Post.css'
 
@@ -13,6 +13,7 @@ import { EditModal } from './EditModal'
 import { setEditingId, setNewContent, setNewTitle } from '../redux/editing/EditingSlice'
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { toggleLike } from '../redux/post/PostSlice'
 
 interface PostProps {
   title: string
@@ -20,6 +21,7 @@ interface PostProps {
   created_datetime: string
   content: string
   id: string
+  likedBy: string[]
 }
 
 export function Post(props: PostProps) {
@@ -87,6 +89,15 @@ export function Post(props: PostProps) {
         <p>
           {props.content}
         </p>
+
+        <div className="likes">
+          <button
+            onClick={() => dispatch(toggleLike({ userName: user, likingId: props.id }))}
+          >
+            <strong>{props.likedBy.length}</strong>
+            <ThumbsUp size={22} weight='bold' color='#7695EC' />
+          </button>
+        </div>
       </div>
     </div>
   )

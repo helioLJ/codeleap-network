@@ -9,6 +9,7 @@ interface Post {
   title: string
   content: string
   created_datetime: string
+  likedBy: string[]
 }
 
 const initialState: Array<Post> = []
@@ -23,7 +24,8 @@ const postSlice = createSlice({
         username: action.payload.username,
         title: action.payload.newTitle,
         content: action.payload.newContent,
-        created_datetime: action.payload.now
+        created_datetime: action.payload.now,
+        likedBy: []
       })
     },
     deletePost: (state, action) => {
@@ -38,6 +40,19 @@ const postSlice = createSlice({
         state[index].title = action.payload.newTitle
         state[index].content = action.payload.newContent
       }
+    },
+    toggleLike: (state, action) => {
+      const index = state.findIndex(post => post.id === action.payload.likingId)
+      if (index !== -1) {
+        if(!state[index].likedBy.includes(action.payload.userName)) {
+          state[index].likedBy.push(action.payload.userName)
+        } else {
+          const indexName = state[index].likedBy.findIndex(name => name === action.payload.userName)
+          state[index].likedBy.splice(indexName, 1)
+        }
+        // state[index].title = action.payload.newTitle
+        // state[index].content = action.payload.newContent
+      }
     }
   },
   extraReducers: (builder) => {
@@ -48,5 +63,5 @@ const postSlice = createSlice({
   }
 })
 
-export const { addNewPost, deletePost, editPost } = postSlice.actions
+export const { addNewPost, deletePost, editPost, toggleLike } = postSlice.actions
 export const postReducer = postSlice.reducer

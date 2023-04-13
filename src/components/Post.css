@@ -55,6 +55,20 @@
   word-wrap: break-word;
 }
 
+.likes {
+  margin-top: 18px;
+  display: flex;
+  justify-content: end;
+}
+
+.likes button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .modal-enter {
   opacity: 0;
 }
