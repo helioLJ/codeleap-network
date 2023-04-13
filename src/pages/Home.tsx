@@ -84,13 +84,13 @@ export function Home() {
             type='submit'
             theme='blue'
             title='Create'
-            formBtn='yes'
+            formbtn='yes'
           />
         </form>
 
         <TransitionGroup>
           {
-            postsList && postsList.map(post => (
+            postsList && postsList.map((post: any) => (
               <CSSTransition key={post.id} classNames="post" timeout={300} >
                 <Post
                   id={post.id}

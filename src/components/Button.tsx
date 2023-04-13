@@ -7,7 +7,7 @@ interface ButtonProps {
   type: 'button' | 'submit'
   theme: 'blue' | 'red' | 'green' | 'white'
   onClick?: any
-  formBtn?: string
+  formbtn?: string
   signinbtn?: string
 }
 
@@ -36,7 +36,7 @@ export function Button(props: ButtonProps) {
   const newContent = useAppSelector((state) => state.content)
   const user = useAppSelector((state) => state.user.value)
 
-  if(props.formBtn === 'yes') {
+  if(props.formbtn === 'yes') {
     if(newTitle.value.trim() === "" || newContent.value.trim() === "") {
       status = 'desactive'
     } else {
