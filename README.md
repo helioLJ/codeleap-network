@@ -15,6 +15,7 @@ Very simple application that will perform basic CRUD functions.
 - TypeScript
 - CSS
 - Redux
+- Redux Toolkit
 - React UUID
 - Phosphor React
 - React Router DOM
